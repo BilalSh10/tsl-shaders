@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three/webgpu";
-import Experience from "./Experience";
+import FlagShader from "../components/Flagshaders/Flag";
+import Patterns from "../components/Patterns/Patterns";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
           return renderer;
         }}
       >
-        <Experience />
+        {/* <FlagShader /> */}
+        <Patterns />
+
       </Canvas>
     </div>
   );
