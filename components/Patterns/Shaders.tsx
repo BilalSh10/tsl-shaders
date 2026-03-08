@@ -33,11 +33,33 @@ export const flagFragmentShaderNode = () => {
   // let strength = mod(uv().x.mul(10), 1);
   // strength = step(0.8, strength);
 
-  // pattern 10
-  let strength = mod(uv().x.mul(10), 1);
+  // // pattern 11
+  // let strength = mod(uv().x.mul(10), 1);
+  // strength = step(0.8, strength);
   
-  strength = step(0.8, strength);
+  // let strengthY = mod(uv().y.mul(10), 1);
+  // strengthY = step(0.8, strengthY);
 
-  const colorNode = color(strength, strength, strength);
+  // const strength1 = strength.add(strengthY);
+
+  // // pattern 12
+  // let strength = mod(uv().x.mul(10), 1);
+  // strength = step(0.8, strength);
+  
+  // let strengthY = mod(uv().y.mul(10), 1);
+  // strengthY = step(0.8, strengthY);
+
+  // const strengthF = strength.mul(strengthY);
+
+  // pattern 13
+  let strength = mod(uv().x.mul(10), 1);
+  strength = step(0.4, strength);
+  
+  let strengthY = mod(uv().y.mul(10), 1);
+  strengthY = step(0.8, strengthY);
+
+  const strengthF = strength.mul(strengthY);
+
+  const colorNode = color(strengthF, strengthF, strengthF);
   return colorNode;
 };
