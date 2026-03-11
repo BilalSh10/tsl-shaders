@@ -150,10 +150,19 @@ export const flagFragmentShaderNode = () => {
   // // pattern 23
   // const strength = rand(uv());
 
-  // pattern 24
 
+  // // pattern 24
+  // const strengthX = floor(uv().x.mul(10)).div(10);
+  // const strengthY = floor(uv().y.mul(10)).div(10);
+  
+  // const gridUV = vec2(strengthX, strengthY);
+
+  // const strength = rand(gridUV);
+
+
+  // pattern 25
   const strengthX = floor(uv().x.mul(10)).div(10);
-  const strengthY = floor(uv().y.mul(10)).div(10);
+  const strengthY = floor(uv().y.mul(10).add(uv().x.mul(5))).div(10);
   
   const gridUV = vec2(strengthX, strengthY);
 
