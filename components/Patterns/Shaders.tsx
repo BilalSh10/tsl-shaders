@@ -17,6 +17,9 @@ import {
   vec2,
   floor,
   rand,
+  length,
+  distance,
+  float,
 } from "three/tsl";
 
 export const flagFragmentShaderNode = () => {
@@ -37,7 +40,7 @@ export const flagFragmentShaderNode = () => {
   // // pattern 7
   // const strength = mod(uv().y.mul(10), 1);
 
-  // // pattern 8
+  // pattern 8
   // let strength = mod(uv().y.mul(10), 1);
   // strength = step(0.5, strength);
 
@@ -160,13 +163,28 @@ export const flagFragmentShaderNode = () => {
   // const strength = rand(gridUV);
 
 
-  // pattern 25
-  const strengthX = floor(uv().x.mul(10)).div(10);
-  const strengthY = floor(uv().y.mul(10).add(uv().x.mul(5))).div(10);
+  // // pattern 25
+  // const strengthX = floor(uv().x.mul(10)).div(10);
+  // const strengthY = floor(uv().y.mul(10).add(uv().x.mul(5))).div(10);
   
-  const gridUV = vec2(strengthX, strengthY);
+  // const gridUV = vec2(strengthX, strengthY);
 
-  const strength = rand(gridUV);
+  // const strength = rand(gridUV);
+
+
+  // // pattern 25
+  // const strength = length(uv());
+
+
+  // // pattern 26
+  // const strength = length(uv().sub(vec2(0.5, 0.5)));
+
+
+  // // pattern 27
+  // const strength = distance(uv(), vec2(0.5, 0.5));
+
+  // pattern 28
+  const strength = float(1).sub(distance(uv(), vec2(0.5, 0.5)));
 
   const colorNode = color(strength, strength, strength);
   return colorNode;
